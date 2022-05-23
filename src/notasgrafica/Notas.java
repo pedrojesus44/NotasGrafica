@@ -42,7 +42,7 @@ public class Notas extends JFrame {
         rotulo4.setBounds(50, 180, 100, 20); texto1.setBounds(145, 20, 220, 20);
         texto2.setBounds(120, 60, 100, 20); texto3.setBounds(120, 100, 100, 20);
         texto4.setBounds(120, 140, 100, 20); texto5.setBounds(120, 180, 100, 20);
-        exibiraluno.setBounds(50, 220, 200, 20); exibir.setBounds(50, 260, 200, 20); 
+        exibiraluno.setBounds(50, 220, 200, 20); exibir.setBounds(50, 260, 250, 20); 
         calcular.setBounds(130, 300, 120, 20); limpar.setBounds(130, 330, 120, 20);
         
         calcular.addActionListener(
@@ -57,10 +57,23 @@ public class Notas extends JFrame {
                     n3 = Double.parseDouble(texto4.getText());
                     n4 = Double.parseDouble(texto5.getText());
                     med = (n1 + n2 + n3 + n4) / 4;
-                    exibiraluno.setVisible(true);
-                    exibir.setVisible(true);
-                    exibiraluno.setText("Aluno(a): " +nome);
-                    exibir.setText("A sua média é: " + med);
+                    if((med >= 7) && (med <=10)) {
+                        exibiraluno.setVisible(true);
+                        exibir.setVisible(true);
+                        exibiraluno.setText("Aluno(a): " +nome);
+                        exibir.setText("A sua média é: " + med + " e está aprovado!");
+                }
+                    else if(med < 7 ) {
+                        exibiraluno.setVisible(true);
+                        exibir.setVisible(true);
+                        exibiraluno.setText("Aluno(a): " +nome);
+                        exibir.setText("A sua média é: " + med + " e está reprovado!");
+                    }
+                    else {
+                        exibir.setVisible(true);
+                        exibir.setText("Inválido!");
+                    }
+                    
                 }
             });
         limpar.addActionListener(
